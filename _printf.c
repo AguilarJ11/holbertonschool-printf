@@ -8,17 +8,32 @@
 
 int _printf(const char *format, ...)
 {
-	int cont, arg;
+	int c1, c_char = 0,
 	va_list list;
 
-	for (cont = 0; format[cont] != '\0'; cont++)
+	for (c1 = 0; format[c1] != '\0'; c1++)
 	{
-		if (format[cont] == '%')
+		if (format[c1] == '%')
 		{
-			arg = (*get_func(format[cont + 1](int);
+			if (format[c1 + 1] == '%')
+			{
+				write (1, &format[c1 + 1], 1);
+				c_char++;
+				c1 = c1 + 2;
+			}
+			else
+			{
+				c_char += get_func(format[c1 + 1])(list);
+				c1 = c1 + 2;
+			}
 		}
+		else
+		{
+			write (1, &format[c1], 1);
+			c_char++;
+		}
+	}
 
-
-
-
+	return (c_char);
+		
 }
