@@ -21,12 +21,12 @@ int _printf(const char *format, ...)
 			{
 				write (1, &format[c1 + 1], 1);
 				c_char++;
-				c1 += 2;
+				c1 += 1;
 			}
 			else
 			{
 				c_char += get_func(format[c1 + 1])(l);
-				c1 += 2;
+				c1 += 1;
 			}
 		}
 		else

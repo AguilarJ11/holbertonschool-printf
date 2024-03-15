@@ -78,18 +78,23 @@ int get_decimal(va_list l)
 	return (cont);
 }
 
+/**
+ *
+ *
+ */
+
 char *str_num(int num)
 {
 	int cont;
-	int numlen = 0, n, lastdig;
+	int numlen = 0, numcopy, lastdig;
 	char *str;
 
-	n = num;
+	numcopy = num;
 
-	while (n != 0)
+	while (numcopy != 0)
 	{
 		numlen++;
-		n /= 10;
+		numcopy /= 10;
 	}
 
 	str = malloc((numlen + 1) * sizeof(char));
