@@ -12,9 +12,9 @@ int main(void)
 	char b = 'b';
 	int c = 102222;
 	_printf("Hola mundo\n");
-	_printf("%i \n", a);
-	_printf("%c \n", b);
-	_printf("%d \n", c);
+	_printf("%i\n", a);
+	_printf("%d%c\n", c, b);
+	_printf("Hola %% %d\n", c);
 
 
 	return (0);
