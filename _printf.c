@@ -8,8 +8,10 @@
 
 int _printf(const char *format, ...)
 {
-	int c1, c_char = 0,
-	va_list list;
+	int c1, c_char = 0;
+	va_list l;
+
+	va_start(l, format);
 
 	for (c1 = 0; format[c1] != '\0'; c1++)
 	{
@@ -19,12 +21,12 @@ int _printf(const char *format, ...)
 			{
 				write (1, &format[c1 + 1], 1);
 				c_char++;
-				c1 = c1 + 2;
+				c1 += 2;
 			}
 			else
 			{
-				c_char += get_func(format[c1 + 1])(list);
-				c1 = c1 + 2;
+				c_char += get_func(format[c1 + 1])(l);
+				c1 += 2;
 			}
 		}
 		else
@@ -33,6 +35,8 @@ int _printf(const char *format, ...)
 			c_char++;
 		}
 	}
+
+	va_end(l);
 
 	return (c_char);
 		

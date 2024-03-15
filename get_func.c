@@ -6,7 +6,7 @@
  *
  */
 
-int (*get_func(char *s))(va_list)
+int (*get_func(char s))(va_list)
 {
 	int c = 0;
 	struct print_arg p_arg[] =
@@ -20,7 +20,7 @@ int (*get_func(char *s))(va_list)
 	
 	while (p_arg[c].arg != NULL)
 	{
-		if (p_arg[c].arg[0] == s[0])
+		if (p_arg[c].arg[0] == s)
 			return (p_arg[c].f);
 		c++;
 	}
