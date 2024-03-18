@@ -120,8 +120,9 @@ char *str_num(int num)
 
 	if (num < 0)
 	{
-		if (num == -2147483647)
+		if (num == -2147483648)
 			num++;
+
 
 		num = num * -1;
 		check_nega = 1;
@@ -139,6 +140,7 @@ char *str_num(int num)
 	numlen++;
 
 	str = malloc((numlen + 1) * sizeof(char));
+
 	if (str == NULL)
 		return (NULL);
 
@@ -146,6 +148,10 @@ char *str_num(int num)
 	{
 		lastdig = num % 10;
 		num /= 10;
+
+		if (cont == 0)
+			lastdig++;
+
 		str[numlen - (cont + 1)] = lastdig + '0';
 	}
 

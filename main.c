@@ -8,13 +8,9 @@
 
 int main(void)
 {
-	int a = 0;
-	char b = 'b';
-	int c = 0;
-	char *str = "Hola Mundo";
-	_printf("%!\n");
-	_printf("%i%c%i%s\n", a, b, c, str);
+	int a = -2147483648;
 
+	_printf("Mi valor es%d\n", a);
 
 	return (0);
 
