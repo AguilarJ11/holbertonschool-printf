@@ -148,7 +148,7 @@ char *str_num(int num)
 		lastdig = num % 10;
 		num /= 10;
 
-		if (cont == 0) && (num == -214748364)
+		if (cont == 0 && num == -214748364)
 			lastdig++;
 
 		str[numlen - (cont + 1)] = lastdig + '0';
