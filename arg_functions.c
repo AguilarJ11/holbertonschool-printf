@@ -120,7 +120,7 @@ char *str_num(int num)
 
 	if (num < 0)
 	{
-		if (num == -32768)
+		if (num == -2147483647)
 			num++;
 
 		num = num * -1;
