@@ -123,7 +123,6 @@ char *str_num(int num)
 		if (num == -2147483648)
 			num++;
 
-
 		num = num * -1;
 		check_nega = 1;
 	}
@@ -149,7 +148,7 @@ char *str_num(int num)
 		lastdig = num % 10;
 		num /= 10;
 
-		if (cont == 0)
+		if (cont == 0) && (num == -214748364)
 			lastdig++;
 
 		str[numlen - (cont + 1)] = lastdig + '0';
