@@ -145,9 +145,10 @@ char *str_num(int num)
 		lastdig = num % 10;
 		num /= 10;
 		str[numlen - (cont + 1)] = lastdig + '0';
-		if (cont == numlen - 1)
-			str[0] = '-';
 	}
+
+	if (check_nega == 1)
+		str[0] = '-';
 
 	str[numlen] = '\0';
 
