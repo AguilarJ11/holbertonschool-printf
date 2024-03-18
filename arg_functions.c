@@ -52,12 +52,13 @@ int get_int(va_list l)
 	int cont;
 	int num;
 	char *s_num;
+	char numzero = '0';
 
 	num = va_arg(l, int);
 
 	if (num == 0)
 	{
-		write (1, &num, 1);
+		write (1, &numzero, 1);
 		return (1);
 	}
 	else
@@ -83,12 +84,13 @@ int get_decimal(va_list l)
 	int cont;
 	int num;
 	char *s_num;
+	char numzero = '0';
 
 	num = va_arg(l, int);
 
 	if (num == 0)
 	{
-		write (1, &num, 1);
+		write (1, &numzero, 1);
 		return (1);
 	}
 	else

@@ -29,9 +29,16 @@ int _printf(const char *format, ...)
 				c_char += get_func(format[c1 + 1])(l);
 				c1 += 1;
 			}
-			else
+			else if (format[c1 + 1] == '\0')
 			{
 				return (-1);
+			}
+			else
+			{
+				write (1,&format[c1], 1);
+				write (1,&format[c1 + 1], 1);
+				c_char += 2;
+				c1 += 1;
 			}
 		}
 		else
