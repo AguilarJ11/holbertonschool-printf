@@ -145,11 +145,16 @@ char *str_num(int num)
 
 	for (cont = 0; cont < numlen; cont++)
 	{
+		if (cont == 0 && num == 2147483647)
+		{
+			lastdig = 8;
+			num /= 10;
+		}
+		else
+		{
 		lastdig = num % 10;
 		num /= 10;
-
-		if (cont == 0 && num == -214748364)
-			lastdig++;
+		}
 
 		str[numlen - (cont + 1)] = lastdig + '0';
 	}
