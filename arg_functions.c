@@ -24,13 +24,22 @@ int get_string(va_list l)
 {
 	int cont;
 	char *str;
+	char str_n[6] = {"(null)"};
 
 	str = va_arg(l, char*);
 
+	if (str == NULL)
+	{
+		write (1, &str_n, 6);
+		return (6);
+	}
+	else
+	{
 	for (cont = 0; str[cont] != '\0'; cont++)
 		write (1, &str[cont], 1);
 
 	return (cont);
+	}
 }
 
 /**
@@ -45,15 +54,23 @@ int get_int(va_list l)
 	char *s_num;
 
 	num = va_arg(l, int);
+
+	if (num == 0)
+	{
+		write (1, &num, 1);
+		return (1);
+	}
+	else
+	{
 	s_num = str_num(num);
 
 	for (cont = 0; s_num[cont] != '\0'; cont++)
 		write (1, &s_num[cont], 1);
 
 	free (s_num);
+	}
 
 	return (cont);
-
 }
 
 /**
@@ -68,6 +85,14 @@ int get_decimal(va_list l)
 	char *s_num;
 
 	num = va_arg(l, int);
+
+	if (num == 0)
+	{
+		write (1, &num, 1);
+		return (1);
+	}
+	else
+	{
 	s_num = str_num(num);
 
 	for (cont = 0; s_num[cont] != '\0'; cont++)
@@ -75,7 +100,9 @@ int get_decimal(va_list l)
 
 	free(s_num);
 
+	}
 	return (cont);
+	
 }
 
 /**
@@ -85,9 +112,18 @@ int get_decimal(va_list l)
 
 char *str_num(int num)
 {
-	int cont;
+	int cont, check_nega = 0;
 	int numlen = 0, numcopy, lastdig;
 	char *str;
+
+	if (num < 0)
+	{
+		if (num == -32768)
+			num++;
+
+		num = num * -1;
+		check_nega = 1;
+	}
 
 	numcopy = num;
 
@@ -96,6 +132,9 @@ char *str_num(int num)
 		numlen++;
 		numcopy /= 10;
 	}
+
+	if (check_nega == 1)
+	numlen++;
 
 	str = malloc((numlen + 1) * sizeof(char));
 	if (str == NULL)
@@ -106,6 +145,8 @@ char *str_num(int num)
 		lastdig = num % 10;
 		num /= 10;
 		str[numlen - (cont + 1)] = lastdig + '0';
+		if (cont == numlen - 1)
+			str[0] = '-';
 	}
 
 	str[numlen] = '\0';

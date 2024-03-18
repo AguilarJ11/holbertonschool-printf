@@ -23,10 +23,15 @@ int _printf(const char *format, ...)
 				c_char++;
 				c1 += 1;
 			}
-			else
+			else if ((format[c1 + 1] == 'c') || (format[c1 + 1] == 's') ||
+			       (format[c1 + 1] == 'd') || (format[c1 + 1] == 'i'))
 			{
 				c_char += get_func(format[c1 + 1])(l);
 				c1 += 1;
+			}
+			else
+			{
+				return (404);
 			}
 		}
 		else
