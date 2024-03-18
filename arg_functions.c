@@ -145,7 +145,7 @@ char *str_num(int num)
 
 	for (cont = 0; cont < numlen; cont++)
 	{
-		if (cont == 0 && num == 2147483647)
+		if (cont == 0 && num == 2147483647 && check_nega == 1)
 		{
 			lastdig = 8;
 			num /= 10;
