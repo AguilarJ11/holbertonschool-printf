@@ -1,10 +1,8 @@
 #include "main.h"
-
 /*
  *
  *
  */
-
 int get_char(va_list l)
 {
 	char arg;
@@ -14,12 +12,10 @@ int get_char(va_list l)
 
 	return (1);
 }
-
 /**
  *
  *
  */
-
 int get_string(va_list l)
 {
 	int cont;
@@ -41,12 +37,10 @@ int get_string(va_list l)
 	return (cont);
 	}
 }
-
 /**
  *
  *
  */
-
 int get_int(va_list l)
 {
 	int cont;
@@ -61,8 +55,7 @@ int get_int(va_list l)
 		write (1, &numzero, 1);
 		return (1);
 	}
-	else
-	{
+	else{
 	s_num = str_num(num);
 
 	for (cont = 0; s_num[cont] != '\0'; cont++)
@@ -73,12 +66,10 @@ int get_int(va_list l)
 
 	return (cont);
 }
-
 /**
  *
  *
  */
-
 int get_decimal(va_list l)
 {
 	int cont;
@@ -88,13 +79,11 @@ int get_decimal(va_list l)
 
 	num = va_arg(l, int);
 
-	if (num == 0)
-	{
+	if (num == 0){
 		write (1, &numzero, 1);
 		return (1);
 	}
-	else
-	{
+	else{
 	s_num = str_num(num);
 
 	for (cont = 0; s_num[cont] != '\0'; cont++)
@@ -106,12 +95,10 @@ int get_decimal(va_list l)
 	return (cont);
 	
 }
-
 /**
  *
  *
  */
-
 char *str_num(int num)
 {
 	int cont, check_nega = 0;
@@ -129,8 +116,7 @@ char *str_num(int num)
 
 	numcopy = num;
 
-	while (numcopy != 0)
-	{
+	while (numcopy != 0){
 		numlen++;
 		numcopy /= 10;
 	}
@@ -142,11 +128,9 @@ char *str_num(int num)
 
 	if (str == NULL)
 		return (NULL);
-
 	for (cont = 0; cont < numlen; cont++)
 	{
-		if (cont == 0 && num == 2147483647 && check_nega == 1)
-		{
+		if (cont == 0 && num == 2147483647 && check_nega == 1){
 			lastdig = 8;
 			num /= 10;
 		}
@@ -155,14 +139,11 @@ char *str_num(int num)
 		lastdig = num % 10;
 		num /= 10;
 		}
-
 		str[numlen - (cont + 1)] = lastdig + '0';
 	}
-
 	if (check_nega == 1)
 		str[0] = '-';
 
 	str[numlen] = '\0';
-
 	return (str);
 }
