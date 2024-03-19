@@ -7,10 +7,10 @@
 #include <unistd.h>
 
 /**
- *
- *
+ * struct print_arg - Estructura
+ * @arg: dependiendo que letra va un caso
+ * @f: Un puntero a la función
  */
-
 struct print_arg
 {
 	char *arg;
@@ -23,6 +23,6 @@ int get_char(va_list);
 int get_int(va_list);
 int get_string(va_list);
 int get_decimal(va_list);
-char* str_num(int num);
+char *str_num(int num);
 
 #endif

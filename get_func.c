@@ -1,20 +1,12 @@
 #include "main.h"
-
 /**
- * get_func - depends of wich case, wich function will bee call
- *@s : char
- *Return: A pointer to the corresponding function
+ * get_func - Estructura para mapear especificadores de formato a funciones
+ * @s: va_list
  *
- *
+ * Return: NULL
  */
-
 int (*get_func(char s))(va_list)
 {
-/**
- *struct print_arg - Structure to map format specifiers to correspo fun
- *
- *
- */
 	int c = 0;
 	struct print_arg p_arg[] = {
 		{"c", get_char},
